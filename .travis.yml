@@ -5,7 +5,7 @@ services:
 install: true
 
 before_install:
-  - openssl aes-256-cbc -K $encrypted_bcce873cdbb0_key -iv $encrypted_bcce873cdbb0_iv -in .stuff.tar.gz.enc -out stuff.tar.gz -d
+  - openssl aes-256-cbc -K $encrypted_525138aa9eeb_key -iv $encrypted_525138aa9eeb_iv -in .stuff.tar.gz.enc -out stuff.tar.gz -d
   - file stuff.tar.gz
   - tar xzvf stuff.tar.gz -C /tmp/
   - eval "$(ssh-agent -s)"
@@ -25,4 +25,4 @@ script:
 
 after_success:
   - sudo -H pip install --upgrade pyOpenSSL ndg-httpsclient pyasn1 requests[security] marshmallow copr-cli simplejson
-  - if [ -f ./SRPMS/*.src.rpm ]; then copr-cli --config /tmp/stuff/.copr build -r Mageia-6-x86_64 jmiahman/mklivecd ./SRPMS/*.src.rpm & copr-cli --config /tmp/stuff/.copr build -r Mageia-6-x86_64 jmiahman/Unity-Linux ./SRPMS/*.src.rpm; fi
+  - if [ -f ./SRPMS/*.src.rpm ]; then copr-cli --config /tmp/stuff/.copr build -r Mageia-6-x86_64 jmiahman/Unity-Linux ./SRPMS/*.src.rpm; fi
