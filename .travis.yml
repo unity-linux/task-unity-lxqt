@@ -22,6 +22,7 @@ script:
   - echo $CID
   - docker exec $CID /bin/sh -c 'cd /rpmbuild && rpmbuild --define "_topdir ${pwd}" -ba ./SPECS/*.spec' --privileged=true
   - find ~/ -name *.src.rpm
+  - tree ~/
   - pwd
   - ls -la
 
