@@ -22,10 +22,6 @@ script:
   - echo $CID
   - docker exec $CID /bin/sh -c 'cd /rpmbuild && mkdir ./{SRPMS,RPMS} && rpmbuild --define "_topdir $(pwd)" -ba ./SPECS/*.spec' --privileged=true
   - find ~/ -name *.src.rpm
-  - sudo apt-get -y install tree
-  - tree ~/
-  - pwd
-  - ls -la
 
 after_success:
   - sudo -H pip install --upgrade pyOpenSSL ndg-httpsclient pyasn1 requests[security] marshmallow copr-cli simplejson
