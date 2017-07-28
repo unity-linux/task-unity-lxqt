@@ -21,8 +21,8 @@ script:
   - export CID=$(docker ps -l | awk '{print $1}' | grep -v -m1 'CONTAINER')
   - echo $CID
   - docker exec $CID /bin/sh -c 'cd /rpmbuild && rpmbuild -ba ./SPECS/*.spec' --privileged=true
-  - ls -lha ./SRPMS/*.src.rpm
+  - find ./ -name *.src.rpm
 
 after_success:
   - sudo -H pip install --upgrade pyOpenSSL ndg-httpsclient pyasn1 requests[security] marshmallow copr-cli simplejson
-  - if [ -f ./SRPMS/*.src.rpm ]; then copr-cli --config /tmp/stuff/.copr build -r Mageia-6-x86_64 jmiahman/Unity-Linux ./SRPMS/*.src.rpm; fi
+  - if [ -f $(find ./ -name *.src.rpm) ]; then copr-cli --config /tmp/stuff/.copr build -r Mageia-6-x86_64 jmiahman/Unity-Linux $(find ./ -name *.src.rpm); fi
