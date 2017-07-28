@@ -20,9 +20,9 @@ script:
   - docker run --privileged=true -d -v "$(pwd):/rpmbuild" -v "/dev:/dev" $DID tail -f /dev/null
   - export CID=$(docker ps -l | awk '{print $1}' | grep -v -m1 'CONTAINER')
   - echo $CID
-  - docker exec $CID /bin/sh -c 'cd /rpmbuild && mkdir ./{SRPMS,RPMS} && rpmbuild --define "_topdir ${pwd}" -ba ./SPECS/*.spec' --privileged=true
+  - docker exec $CID /bin/sh -c 'cd /rpmbuild && mkdir ./{SRPMS,RPMS} && rpmbuild --define "_topdir $(pwd)" -ba ./SPECS/*.spec' --privileged=true
   - find ~/ -name *.src.rpm
-  - apt-get -y install tree
+  - sudo apt-get -y install tree
   - tree ~/
   - pwd
   - ls -la
