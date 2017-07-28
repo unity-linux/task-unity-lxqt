@@ -21,7 +21,9 @@ script:
   - export CID=$(docker ps -l | awk '{print $1}' | grep -v -m1 'CONTAINER')
   - echo $CID
   - docker exec $CID /bin/sh -c 'cd /rpmbuild && rpmbuild --define "_topdir ${pwd}" -ba ./SPECS/*.spec' --privileged=true
-  - echo $(find ~/ -name *.src.rpm)
+  - find ~/ -name *.src.rpm
+  - pwd
+  - ls -la
 
 after_success:
   - sudo -H pip install --upgrade pyOpenSSL ndg-httpsclient pyasn1 requests[security] marshmallow copr-cli simplejson
