@@ -58,7 +58,7 @@ Summary:	Minimal dependencies needed for LXQt
 Group:		Graphical desktop/Other
 Requires:	desktop-common-data
 # components listed at http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source
-Buildrequires:	systemd-devel #Needed for post scripts
+BuildRequires:	systemd-devel
 Requires:	basesystem-uml
 Requires:	lxqt-globalkeys
 Requires:	lxqt-notificationd
