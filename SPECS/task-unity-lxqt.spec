@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -58,7 +58,7 @@ Summary:	Minimal dependencies needed for LXQt
 Group:		Graphical desktop/Other
 Requires:	desktop-common-data
 # components listed at http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source
-Requires:	basesystem
+Requires:	basesystem-uml
 Requires:	lxqt-globalkeys
 Requires:	lxqt-notificationd
 Requires:	lxqt-panel
