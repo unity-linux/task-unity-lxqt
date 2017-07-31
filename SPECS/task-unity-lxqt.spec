@@ -60,6 +60,8 @@ Requires:	desktop-common-data
 # components listed at http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source
 BuildRequires:	systemd-devel
 Requires:	basesystem-uml
+Requires:	xmessage
+Requires:	gpm
 Requires:	lxqt-globalkeys
 Requires:	lxqt-notificationd
 Requires:	lxqt-panel
