@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.0
-Release:	%{?dist}2
+Release:	%{?dist}3
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
