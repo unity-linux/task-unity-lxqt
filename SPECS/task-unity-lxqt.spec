@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.0
-Release:	5%{?dist}
+Release:	6%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -82,7 +82,8 @@ Requires:	openbox
 Requires:	qterminal
 Requires:	task-x11
 Requires:	dbus-x11
-Recommends:	x11-driver-video-vboxvideo
+Requires: x11-driver-video
+Requires:	x11-driver-video-vboxvideo
 Recommends:	drakx-finish-install
 Recommends:	drakconf
 Recommends:	fonts-ttf-dejavu
