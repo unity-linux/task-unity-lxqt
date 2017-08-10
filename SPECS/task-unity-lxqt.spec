@@ -39,7 +39,6 @@ Recommends:	meteo-qt
 
 #Recommends:	xarchiver
 #Recommends:	scrot
-#Recommends:	xmessage
 #Recommends:	networkmanager-applet
 #Recommends:	parcellite
 #Recommends:	volumeicon
@@ -85,15 +84,13 @@ Requires:	dbus-x11
 Requires: x11-driver-video
 #Needed for vbox package below
 Requires: dkms-minimal
-Requires:	x11-driver-video-vboxvideo
+Requires: x11-driver-video-vboxvideo
+Requires: dnfdragora-qt
 Recommends:	drakx-finish-install
 Recommends:	drakconf
 Recommends:	fonts-ttf-dejavu
 Recommends:	lxde-icon-theme
 Recommends:	oxygen-icon-theme
-Obsoletes:	task-razorqt < 1-13
-Obsoletes:	lxqt-appswitcher < 0.7.0-5
-Obsoletes:	compton-conf < 0.1.1-1
 
 %description minimal
 This package is a meta-package, meaning that its purpose is to contain
