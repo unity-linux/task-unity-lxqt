@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.0
-Release:	8%{?dist}
+Release:	9%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -85,15 +85,15 @@ Group:		Graphical desktop/Other
 Requires:	desktop-common-data
 # components listed at http://wiki.lxde.org/en/Build_LXDE-Qt_From_Source
 BuildRequires:	systemd-devel
-Requires:	%{name}-minimal
-Requires:	mageia-theme
-Requires: Requires:	sddm
+Requires: %{name}-minimal
+Requires: mageia-theme
+Requires: sddm
 Requires: volumeicon
-Requires:	basesystem-uml
-Requires:	xmessage
-Requires:	gpm
-Requires:	task-x11
-Requires:	dbus-x11
+Requires: basesystem-uml
+Requires: xmessage
+Requires: gpm
+Requires: task-x11
+Requires: dbus-x11
 Requires: x11-driver-video
 #Needed for vbox package below
 Requires: dkms-minimal
@@ -101,16 +101,18 @@ Requires: x11-driver-video-vboxvideo
 Requires: dnfdragora-qt
 
 # We need Icons, but 32M worth?
-Requires:  oxygen-icons5
+Requires: oxygen-icons5
 
-Requires:	drakx-finish-install
-Requires:	drakconf
+Requires: drakx-finish-install
+Requires: drakconf
 Requires: alsa-utils
 
 %description live
 This package is a meta-package, meaning that its purpose is to contain
-minimal dependencies for running LXQT, the Qt port of the upcoming version
-of LXDE, the Lightweight Desktop Environmen.
+dependencies for running LXQT, the Qt port of the upcoming version
+of LXDE, the Lightweight Desktop Environment in a Live Environment.
+This package assures that the minimal needed packages are installed
+for a viable desktop environment.
 
 %post live
 /usr/bin/systemctl set-default graphical.target
