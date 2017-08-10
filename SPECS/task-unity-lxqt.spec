@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.0
-Release:	6%{?dist}
+Release:	7%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -86,11 +86,12 @@ Requires: x11-driver-video
 Requires: dkms-minimal
 Requires: x11-driver-video-vboxvideo
 Requires: dnfdragora-qt
+# We need Icons but 32M worth?
+Requires:  oxygen-icons5
 Recommends:	drakx-finish-install
 Recommends:	drakconf
 Recommends:	fonts-ttf-dejavu
 Recommends:	lxde-icon-theme
-Recommends:	oxygen-icon-theme
 
 %description minimal
 This package is a meta-package, meaning that its purpose is to contain
