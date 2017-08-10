@@ -83,6 +83,8 @@ Requires:	qterminal
 Requires:	task-x11
 Requires:	dbus-x11
 Requires: x11-driver-video
+#Needed for vbox package below
+Requires: dkms-minimal
 Requires:	x11-driver-video-vboxvideo
 Recommends:	drakx-finish-install
 Recommends:	drakconf
