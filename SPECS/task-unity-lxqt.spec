@@ -116,7 +116,7 @@ for a viable desktop environment.
 
 %post live
 /usr/bin/systemctl set-default graphical.target
-/usr/bin/systemctl enabled sddm
+%systemd_post sddm.service
 
 %files
 
