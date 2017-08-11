@@ -98,6 +98,7 @@ Requires: x11-driver-video
 #Needed for vbox package below
 Requires: dkms-minimal
 Requires: x11-driver-video-vboxvideo
+Requires: virtualbox-kernel-desktop-latest
 Requires: dnfdragora-qt
 
 # We need Icons, but 32M worth?
