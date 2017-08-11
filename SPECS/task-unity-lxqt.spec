@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.0
-Release:	10%{?dist}
+Release:	11%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -99,6 +99,7 @@ Requires: x11-driver-video
 Requires: dkms-minimal
 Requires: x11-driver-video-vboxvideo
 Requires: virtualbox-kernel-desktop-latest
+Requires: vboxadditions-kernel-desktop-latest
 Requires: dnfdragora-qt
 
 # We need Icons, but 32M worth?
