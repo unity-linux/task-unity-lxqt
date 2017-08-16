@@ -96,17 +96,11 @@ Requires: 	task-x11
 Requires: 	dbus-x11
 Requires: 	x11-driver-video
 #Needed for vbox package below
-<<<<<<< HEAD
 Requires:	dkms-minimal
 Requires:	x11-driver-video-vboxvideo
+Requires:	virtualbox-kernel-desktop-latest
+Requires:	vboxadditions-kernel-desktop-latest
 Requires:	dnfdragora-qt
-=======
-Requires: dkms-minimal
-Requires: x11-driver-video-vboxvideo
-Requires: virtualbox-kernel-desktop-latest
-Requires: vboxadditions-kernel-desktop-latest
-Requires: dnfdragora-qt
->>>>>>> c230550f5ea231b9ddb5aad64e534ff4dc108d4b
 
 # We need Icons, but 32M worth?
 Requires:	oxygen-icons5
