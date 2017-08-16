@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.0
-Release:	10%{?dist}
+Release:	11%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -96,9 +96,17 @@ Requires: 	task-x11
 Requires: 	dbus-x11
 Requires: 	x11-driver-video
 #Needed for vbox package below
+<<<<<<< HEAD
 Requires:	dkms-minimal
 Requires:	x11-driver-video-vboxvideo
 Requires:	dnfdragora-qt
+=======
+Requires: dkms-minimal
+Requires: x11-driver-video-vboxvideo
+Requires: virtualbox-kernel-desktop-latest
+Requires: vboxadditions-kernel-desktop-latest
+Requires: dnfdragora-qt
+>>>>>>> c230550f5ea231b9ddb5aad64e534ff4dc108d4b
 
 # We need Icons, but 32M worth?
 Requires:	oxygen-icons5
@@ -116,7 +124,7 @@ for a viable desktop environment.
 
 %post live
 /usr/bin/systemctl set-default graphical.target
-/usr/bin/systemctl enabled sddm
+/usr/bin/systemctl enable sddm
 
 %files
 
