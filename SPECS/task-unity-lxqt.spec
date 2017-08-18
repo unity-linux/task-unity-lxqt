@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.0
-Release:	12%{?dist}
+Release:	13%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -88,6 +88,7 @@ BuildRequires:	systemd-devel
 Requires: 	%{name}-minimal
 Requires: 	unity-theme
 Requires: 	sddm
+Requires: 	cpupower
 Requires: 	volumeicon
 Requires: 	basesystem-uml
 Requires: 	xmessage
