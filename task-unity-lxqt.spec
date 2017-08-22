@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -125,5 +125,12 @@ for a viable desktop environment.
 
 %files live
 %changelog
+* Mon Aug 21 2017 Jeremiah Summers <Jeremiah.Summers@io.com> 0.1.2-2
+-  - Edit tito (Jeremiah.Summers@io.com)
+- Revert "Automatic commit of package [task-unity-lxqt] release [0.1.3-1]."
+  (Jeremiah.Summers@io.com)
+- Automatic commit of package [task-unity-lxqt] release [0.1.3-1].
+  (Jeremiah.Summers@io.com)
+
 * Thu Aug 17 2017 JMiahMan <jmiahman@unity-linux.org> 0.1.2-1
 - Implamented Tito
