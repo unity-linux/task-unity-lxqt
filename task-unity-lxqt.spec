@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -118,6 +118,10 @@ for a viable desktop environment.
 %post live
 /usr/bin/systemctl set-default graphical.target
 /usr/bin/systemctl enable sddm
+if [ `grep -c ^live /etc/passwd` = "0" ]; then
+/usr/sbin/useradd -c 'LiveCD User' -d /home/live -p 'Unity!' -s /bin/bash live
+/usr/bin/passwd -d live
+fi
 
 %files
 
@@ -125,12 +129,11 @@ for a viable desktop environment.
 
 %files live
 %changelog
+* Mon Aug 21 2017 Jeremiah Summers <Jeremiah.Summers@io.com> 0.1.2-3
+- Fix travis file add live user 
+
 * Mon Aug 21 2017 Jeremiah Summers <Jeremiah.Summers@io.com> 0.1.2-2
--  - Edit tito (Jeremiah.Summers@io.com)
-- Revert "Automatic commit of package [task-unity-lxqt] release [0.1.3-1]."
-  (Jeremiah.Summers@io.com)
-- Automatic commit of package [task-unity-lxqt] release [0.1.3-1].
-  (Jeremiah.Summers@io.com)
+- Edit tito (Jeremiah.Summers@io.com)
 
 * Thu Aug 17 2017 JMiahMan <jmiahman@unity-linux.org> 0.1.2-1
 - Implamented Tito
