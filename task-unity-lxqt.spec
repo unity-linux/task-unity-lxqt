@@ -1,5 +1,5 @@
 Name:		task-unity-lxqt
-Version:	0.1.2
+Version:	0.1.3
 Release:	1%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
@@ -125,5 +125,8 @@ for a viable desktop environment.
 
 %files live
 %changelog
+* Mon Aug 21 2017 Jeremiah Summers <Jeremiah.Summers@io.com> 0.1.3-1
+- Move Spec file out of Dir 
+
 * Thu Aug 17 2017 JMiahMan <jmiahman@unity-linux.org> 0.1.2-1
 - Implamented Tito
