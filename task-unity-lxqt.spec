@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	4%{?dist}
+Release:	5%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -121,6 +121,7 @@ for a viable desktop environment.
 if [ `grep -c ^live /etc/passwd` = "0" ]; then
 /usr/sbin/useradd -c 'LiveCD User' -d /home/live -p 'Unity!' -s /bin/bash live
 /usr/bin/passwd -d live
+ln -s /home/live/.config/openbox/rc.xml /home/live/.config/openbox/lxqt-rc.xml
 fi
 
 %files
@@ -129,6 +130,9 @@ fi
 
 %files live
 %changelog
+* Mon Aug 28 2017 Jeremiah Summers <Jeremiah.Summers@io.com> 0.1.2-5
+- Symlink lxqt config file to openbox config inorder to bypass start message
+
 * Mon Aug 28 2017 Jeremiah Summers <Jeremiah.Summers@io.com> 0.1.2-4
 - Add vboxadditions-kernel-desktop-latest instead of dkms install on boot
 
