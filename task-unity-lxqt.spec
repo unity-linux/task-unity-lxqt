@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	3%{?dist}
+Release:	4%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -98,7 +98,7 @@ Requires: 	dbus-x11
 Requires: 	x11-driver-video
 #Needed for vbox package below
 Requires:	dkms-minimal
-Requires:	dkms-vboxadditions
+Requires:	vboxadditions-kernel-desktop-latest
 Requires:	dnfdragora-qt
 
 # We need Icons, but 32M worth?
@@ -129,6 +129,9 @@ fi
 
 %files live
 %changelog
+* Mon Aug 28 2017 Jeremiah Summers <Jeremiah.Summers@io.com> 0.1.2-4
+- Add vboxadditions-kernel-desktop-latest instead of dkms install on boot
+
 * Mon Aug 21 2017 Jeremiah Summers <Jeremiah.Summers@io.com> 0.1.2-3
 - Fix travis file add live user 
 
