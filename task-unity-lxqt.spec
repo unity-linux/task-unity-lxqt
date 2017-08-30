@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	6%{?dist}
+Release:	7%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -100,6 +100,7 @@ Requires: 	x11-driver-video
 Requires:	dkms-minimal
 Requires:	vboxadditions-kernel-desktop-latest
 Requires:	dnfdragora-qt
+Requires:	qupzilla
 
 # We need Icons, but 32M worth?
 Requires:	oxygen-icons5
@@ -131,6 +132,9 @@ fi
 
 %files live
 %changelog
+* Tue Aug 29 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-7
+- Require qupzilla
+
 * Tue Aug 29 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-6
 - Copy lxqt config file to openbox config inorder to bypass start message
 
