@@ -123,7 +123,7 @@ if [ `grep -c ^live /etc/passwd` = "0" ]; then
 /usr/sbin/useradd -c 'LiveCD User' -d /home/live -p 'Unity!' -s /bin/bash live
 /usr/bin/passwd -d live
 mkdir -p /home/live/.config/openbox/
-cp /home/live/.config/openbox/rc.xml /home/live/.config/openbox/lxqt-rc.xml
+cp /etc/xdg/openbox/lxqt-rc.xml /home/live/.config/openbox/lxqt-rc.xml
 fi
 
 %files
