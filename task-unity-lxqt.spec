@@ -98,7 +98,7 @@ Requires: 	dbus-x11
 Requires: 	x11-driver-video
 #Needed for vbox package below
 Requires:	dkms-minimal
-Requires:	vboxadditions-kernel-desktop-latest
+Requires:	vboxadditions-kernel-unity-desktop-latest
 Requires:	dnfdragora-qt
 Requires:	qupzilla
 
@@ -132,6 +132,9 @@ fi
 
 %files live
 %changelog
+* Tue Aug 29 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-9
+- Add vboxadditions-kernel-unity-desktop-latest
+
 * Tue Aug 29 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-8
 - Copy from xdg
 
