@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	10%{?dist}
+Release:	11%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -96,6 +96,7 @@ Requires: 	gpm
 Requires: 	task-x11
 Requires: 	dbus-x11
 Requires: 	x11-driver-video
+Requires: 	pulseaudio
 #Needed for vbox package below
 Requires:	dkms-minimal
 Requires:	vboxadditions-kernel-unity-desktop-latest
@@ -133,6 +134,12 @@ fi
 
 %files live
 %changelog
+* Tue Aug 29 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-11
+- Add pulseaudio
+
+* Tue Aug 29 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-10
+- Fix home perms
+
 * Tue Aug 29 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-9
 - Add vboxadditions-kernel-unity-desktop-latest
 
