@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	9%{?dist}
+Release:	10%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -124,6 +124,7 @@ if [ `grep -c ^live /etc/passwd` = "0" ]; then
 /usr/bin/passwd -d live
 mkdir -p /home/live/.config/openbox/
 cp /etc/xdg/openbox/lxqt-rc.xml /home/live/.config/openbox/lxqt-rc.xml
+chown -R live:live /home/live
 fi
 
 %files
