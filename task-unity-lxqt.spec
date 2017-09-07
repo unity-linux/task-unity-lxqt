@@ -102,6 +102,9 @@ Requires:	dkms-minimal
 Requires:	vboxadditions-kernel-unity-desktop-latest
 Requires:	dnfdragora-qt
 Requires:	qupzilla
+Requires: grub2-common
+Requires: grub2-efi
+Requires: dosfstools
 
 # We need Icons, but 32M worth?
 Requires:	oxygen-icons5
