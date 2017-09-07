@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	12%{?dist}
+Release:	13%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -102,9 +102,10 @@ Requires:	dkms-minimal
 Requires:	vboxadditions-kernel-unity-desktop-latest
 Requires:	dnfdragora-qt
 Requires:	qupzilla
-Requires: grub2-common
-Requires: grub2-efi
-Requires: dosfstools
+Requires:	grub2
+Requires:	grub2-common
+Requires:	grub2-efi
+Requires:	dosfstools
 
 # We need Icons, but 32M worth?
 Requires:	oxygen-icons5
@@ -137,6 +138,9 @@ fi
 
 %files live
 %changelog
+* Thu Sep 07 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-13
+- Add grub
+
 * Thu Sep 07 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-12
 - Add Grub Requires for efi booting
 
