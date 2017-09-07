@@ -140,7 +140,6 @@ fi
 * Thu Sep 07 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-12
 - Add Grub Requires for efi booting
 
-%changelog
 * Tue Aug 29 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-11
 - Add pulseaudio
 
