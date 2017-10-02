@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	18%{?dist}
+Release:	19%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -87,6 +87,7 @@ Requires:	desktop-common-data
 BuildRequires:	systemd-devel
 Requires: 	%{name}-minimal
 Requires: 	unity-theme
+Requires: 	unity-theme-grub
 Requires: 	sddm
 Requires: 	cpupower
 Requires: 	volumeicon
@@ -140,6 +141,9 @@ fi
 
 %files live
 %changelog
+* Sun Oct 01 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-19
+- Add unity-theme-grub
+
 * Fri Sep 29 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-18
 - Add unity-grub2-pc
 
