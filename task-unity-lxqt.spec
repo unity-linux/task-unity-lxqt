@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	19%{?dist}
+Release:	20%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -103,10 +103,10 @@ Requires:	dkms-minimal
 Requires:	vboxadditions-kernel-unity-desktop-latest
 Requires:	dnfdragora-qt
 Requires:	qupzilla
-Requires:	unity-grub2-pc
-Requires:	unity-grub2-tools
+Requires:	grub2
+Requires:	grub2-common
 %ifarch x86_64
-Requires:	unity-grub2-efi
+Requires:	grub2-efi
 %endif
 Requires:	dosfstools
 
@@ -141,6 +141,9 @@ fi
 
 %files live
 %changelog
+* Fri Oct 06 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-20
+- Revert back to using Mageia grub2 but modified
+
 * Sun Oct 01 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-19
 - Add unity-theme-grub
 
