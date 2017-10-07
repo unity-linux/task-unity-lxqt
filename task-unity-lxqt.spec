@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	20%{?dist}
+Release:	21%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -97,6 +97,8 @@ Requires: 	gpm
 Requires: 	task-x11
 Requires: 	dbus-x11
 Requires: 	x11-driver-video
+#Install wireless firmware task package
+Requires:	task-wireless-firmware
 Requires: 	pulseaudio
 #Needed for vbox package below
 Requires:	dkms-minimal
@@ -141,6 +143,9 @@ fi
 
 %files live
 %changelog
+* Fri Oct 06 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-21
+- Pull in wireles-firmware for live package
+
 * Fri Oct 06 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-20
 - Revert back to using Mageia grub2 but modified
 
