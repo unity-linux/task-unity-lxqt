@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	21%{?dist}
+Release:	22%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -91,7 +91,6 @@ Requires: 	unity-theme-grub
 Requires: 	sddm
 Requires: 	cpupower
 Requires: 	volumeicon
-Requires: 	basesystem-uml
 Requires: 	xmessage
 Requires: 	gpm
 Requires: 	task-x11
@@ -143,6 +142,9 @@ fi
 
 %files live
 %changelog
+* Sat Oct 14 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-22
+- Remove basesystem-uml
+
 * Fri Oct 06 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-21
 - Pull in wireles-firmware for live package
 
