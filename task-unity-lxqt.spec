@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	22%{?dist}
+Release:	23%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -134,6 +134,9 @@ if [ `grep -c ^live /etc/passwd` = "0" ]; then
 mkdir -p /home/live/.config/openbox/
 cp /etc/xdg/openbox/lxqt-rc.xml /home/live/.config/openbox/lxqt-rc.xml
 chown -R live:live /home/live
+sed -i 's!#[Autologin]![Autologin]!g' /etc/sddm.conf
+sed -i 's!#User=!User=live!g' /etc/sddm.conf
+sed -i 's!#Session=!Session=lxqt.desktop!g' /etc/sddm.conf
 fi
 
 %files
@@ -142,6 +145,9 @@ fi
 
 %files live
 %changelog
+* Fri Oct 20 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-23
+- Attempt to auto login
+
 * Sat Oct 14 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-22
 - Remove basesystem-uml
 
