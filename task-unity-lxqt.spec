@@ -134,7 +134,7 @@ if [ `grep -c ^live /etc/passwd` = "0" ]; then
 mkdir -p /home/live/.config/openbox/
 cp /etc/xdg/openbox/lxqt-rc.xml /home/live/.config/openbox/lxqt-rc.xml
 chown -R live:live /home/live
-sed -i 's!#[Autologin]![Autologin]!g' /etc/sddm.conf
+sed -i 's!\#\[Autologin\]![Autologin]!g' /etc/sddm.conf
 sed -i 's!#User=!User=live!g' /etc/sddm.conf
 sed -i 's!#Session=!Session=lxqt.desktop!g' /etc/sddm.conf
 fi
