@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	24%{?dist}
+Release:	25%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -147,6 +147,9 @@ fi
 
 %files live
 %changelog
+* Sat Oct 21 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-25
+- Bump version add draklive-install
+
 * Fri Oct 20 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-24
 - Fix typo
 
