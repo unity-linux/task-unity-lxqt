@@ -113,7 +113,7 @@ Requires:	dosfstools
 
 # We need Icons, but 32M worth?
 Requires:	oxygen-icons5
-
+Requires:	draklive-install
 Requires:	drakx-finish-install
 Requires:	drakconf
 Requires:	alsa-utils
@@ -133,10 +133,12 @@ if [ `grep -c ^live /etc/passwd` = "0" ]; then
 /usr/bin/passwd -d live
 mkdir -p /home/live/.config/openbox/
 cp /etc/xdg/openbox/lxqt-rc.xml /home/live/.config/openbox/lxqt-rc.xml
-chown -R live:live /home/live
 sed -i 's!\#\[Autologin\]![Autologin]!g' /etc/sddm.conf
 sed -i 's!#User=!User=live!g' /etc/sddm.conf
 sed -i 's!#Session=!Session=lxqt.desktop!g' /etc/sddm.conf
+mkdir -p /home/live/Desktop
+cp /usr/share/applications/mageia-draklive-install.desktop /home/live/Desktop/
+chown -R live:live /home/live
 fi
 
 %files
