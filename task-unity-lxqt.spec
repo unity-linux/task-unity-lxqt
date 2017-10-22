@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	25%{?dist}
+Release:	26%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -106,6 +106,7 @@ Requires:	dnfdragora-qt
 Requires:	qupzilla
 Requires:	grub2
 Requires:	grub2-common
+Requires: grub2-mageia-theme
 %ifarch x86_64
 Requires:	grub2-efi
 %endif
@@ -147,6 +148,9 @@ fi
 
 %files live
 %changelog
+* Sat Oct 21 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-26
+- Add grub2-mageia-theme
+
 * Sat Oct 21 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-25
 - Bump version add draklive-install
 
