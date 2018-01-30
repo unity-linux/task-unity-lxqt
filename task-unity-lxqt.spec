@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	26%{?dist}
+Release:	27%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -63,7 +63,7 @@ Requires:	lxqt-qtplugin
 Requires:	lxqt-policykit
 Requires:	lxqt-powermanagement
 Requires:	lxqt-about
-Requires:	lxqt-common
+#Requires:	lxqt-common
 Requires:	lxmenu-data
 Requires:	lxqt-config
 Requires:	openbox
@@ -148,6 +148,9 @@ fi
 
 %files live
 %changelog
+* Tue Jan 30 2018 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-27
+- Don't require lxqt-common
+
 * Sat Oct 21 2017 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-26
 - Add grub2-mageia-theme
 
