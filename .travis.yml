@@ -19,11 +19,8 @@ script:
   /dev/null
 - export CID=$(docker ps -l | awk '{print $1}' | grep -v -m1 'CONTAINER')
 - echo $CID
-- docker exec $CID /bin/sh -c 'cd /rpmbuild && mkdir ./{SRPMS,RPMS} && dnf builddep
-  *.spec -y && rpmbuild --define "_topdir $(pwd)" -ba *.spec' --privileged=true
+- docker exec $CID /bin/sh -c 'cd /rpmbuild && mkdir ./{SRPMS,RPMS} && dnf builddep *.spec -y && rpmbuild --define "_topdir $(pwd)" -ba *.spec' --privileged=true
 - find ~/ -name *.src.rpm
 after_success:
-- sudo -H pip install --upgrade pyOpenSSL ndg-httpsclient pyasn1 requests[security]
-  jinja2 marshmallow copr-cli simplejson
-- if [ -f $(find ~/ -name *.src.rpm) ]; then copr-cli --config /tmp/stuff/.copr build
-  -r mageia-6-x86_64 jmiahman/Unity-Linux $(find ~/ -name *.src.rpm); fi
+- sudo -H pip install --upgrade pyOpenSSL ndg-httpsclient pyasn1 requests[security] jinja2 marshmallow copr-cli simplejson
+- if [ -f $(find ~/ -name *.src.rpm) ]; then copr-cli --config /tmp/stuff/.copr build -r mageia-6-x86_64 jmiahman/Unity-Linux $(find ~/ -name *.src.rpm); fi
