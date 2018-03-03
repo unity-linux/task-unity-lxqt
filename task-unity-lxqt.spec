@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	31%{?dist}
+Release:	32%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -98,6 +98,7 @@ Requires: 	dbus-x11
 Requires: 	x11-driver-video
 #Install wireless firmware task package
 Requires:	task-wireless-firmware
+Requires:	mandi
 Requires: 	pulseaudio
 #Needed for vbox package below
 Requires:	dkms-minimal
@@ -150,6 +151,9 @@ fi
 
 %files live
 %changelog
+* Sat Mar 03 2018 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-32
+- add mandi as it's needed for wireless
+
 * Sat Mar 03 2018 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-31
 - add wpa_supplicant and synaptic Xorg driver
 
