@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	30%{?dist}
+Release:	31%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -150,6 +150,9 @@ fi
 
 %files live
 %changelog
+* Sat Mar 03 2018 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-31
+- add wpa_supplicant and synaptic Xorg driver
+
 * Sat Mar 03 2018 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-30
 - add back wireless driver task package
 
