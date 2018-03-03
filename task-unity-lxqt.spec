@@ -106,7 +106,9 @@ Requires:	dnfdragora-qt
 Requires:	qupzilla
 Requires:	grub2
 Requires:	grub2-common
-Requires: grub2-mageia-theme
+Requires:	grub2-mageia-theme
+Requires:	x11-driver-input-synaptics
+Requires:	wpa_supplicant
 %ifarch x86_64
 Requires:	grub2-efi
 %endif
