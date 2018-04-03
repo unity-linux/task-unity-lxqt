@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	32%{?dist}
+Release:	33%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -105,6 +105,8 @@ Requires:	dkms-minimal
 #Requires:	vboxadditions-kernel-unity-desktop-latest
 Requires:	dnfdragora-qt
 Requires:	qupzilla
+Requires:	os-prober
+Requires:	acpid
 Requires:	grub2
 Requires:	grub2-common
 Requires:	grub2-mageia-theme
@@ -151,6 +153,10 @@ fi
 
 %files live
 %changelog
+%changelog
+* Mon Apr 02 2018 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-33
+- add acpid and os-prober
+
 * Sat Mar 03 2018 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-32
 - add mandi as it's needed for wireless
 
