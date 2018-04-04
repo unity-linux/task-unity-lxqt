@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	32%{?dist}
+Release:	33%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -88,7 +88,7 @@ BuildRequires:	systemd-devel
 Requires: 	%{name}-minimal
 Requires: 	unity-theme
 Requires: 	unity-theme-grub
-Requires: 	sddm
+Requires: 	lightdm
 Requires: 	cpupower
 Requires: 	volumeicon
 Requires: 	xmessage
@@ -131,15 +131,22 @@ for a viable desktop environment.
 
 %post live
 /usr/bin/systemctl set-default graphical.target
-/usr/bin/systemctl enable sddm
+/usr/bin/systemctl enable lightdm
 if [ `grep -c ^live /etc/passwd` = "0" ]; then
 /usr/sbin/useradd -c 'LiveCD User' -d /home/live -p 'Unity!' -s /bin/bash live
 /usr/bin/passwd -d live
 mkdir -p /home/live/.config/openbox/
 cp /etc/xdg/openbox/lxqt-rc.xml /home/live/.config/openbox/lxqt-rc.xml
-sed -i 's!\#\[Autologin\]![Autologin]!g' /etc/sddm.conf
-sed -i 's!#User=!User=live!g' /etc/sddm.conf
-sed -i 's!#Session=!Session=lxqt.desktop!g' /etc/sddm.conf
+
+#For SDDM if it works
+#sed -i 's!\#\[Autologin\]![Autologin]!g' /etc/sddm.conf
+#sed -i 's!#User=!User=live!g' /etc/sddm.conf
+#sed -i 's!#Session=!Session=lxqt.desktop!g' /etc/sddm.conf
+
+#For LightDM
+sed -i 's!#autologin-user=!autologin-user=live!g' /etc/lightdm/lightdm.conf
+sed -i 's!#autologin-session=!autologin-session=lxqt.desktop!g' /etc/lightdm/lightdm.conf
+
 mkdir -p /home/live/Desktop
 cp /usr/share/applications/mageia-draklive-install.desktop /home/live/Desktop/
 chown -R live:live /home/live
@@ -151,6 +158,9 @@ fi
 
 %files live
 %changelog
+* Tue Apr 03 2018 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-33
+- Use lightdm for now to replace sddm
+
 * Sat Mar 03 2018 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-32
 - add mandi as it's needed for wireless
 
