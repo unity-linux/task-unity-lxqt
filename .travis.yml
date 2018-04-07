@@ -4,13 +4,15 @@ services:
 - docker
 install: true
 before_install:
-- openssl aes-256-cbc -K $encrypted_2fa943c63c4a_key -iv $encrypted_2fa943c63c4a_iv -in .stuff.tar.gz.enc -out stuff.tar.gz -d
+- openssl aes-256-cbc -K $encrypted_0642de9fa44a_key -iv $encrypted_0642de9fa44a_iv -in .stuff.tar.gz.enc -out stuff.tar.gz -d
 - file stuff.tar.gz
 - tar xzvf stuff.tar.gz -C /tmp/
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/stuff/.deploy
 - ssh-add /tmp/stuff/.deploy
 - mv /tmp/stuff/.host ~/.ssh/config
+- gem install travis
+- sh /tmp/stuff/.travis_login
 - docker pull jmiahman/mageia-rpmbuilder
 script:
 - export DID=$(docker image ls | grep -m1 mageia-rpmbuilder | awk '{print $3}')
@@ -23,4 +25,4 @@ script:
 - find ~/ -name *.src.rpm
 after_success:
 - sudo -H pip install --upgrade pyOpenSSL ndg-httpsclient pyasn1 requests[security] jinja2 marshmallow copr-cli simplejson
-- if [ -f $(find ~/ -name *.src.rpm) ]; then copr-cli --config /tmp/stuff/.copr build jmiahman/Unity-Linux $(find ~/ -name *.src.rpm); fi
+- if [ -f $(find ~/ -name *.src.rpm) ]; then copr-cli --config /tmp/stuff/.copr build jmiahman/Unity-Linux $(find ~/ -name *.src.rpm); travis restart -r unity-linux/buildunity ; fi
