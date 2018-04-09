@@ -147,7 +147,7 @@ cp /etc/xdg/openbox/lxqt-rc.xml /home/live/.config/openbox/lxqt-rc.xml
 
 #For LightDM
 sed -i 's!#autologin-user=!autologin-user=live!g' /etc/lightdm/lightdm.conf
-sed -i 's!#autologin-session=!autologin-session=lxqt.desktop!g' /etc/lightdm/lightdm.conf
+sed -i 's!#autologin-session=!autologin-session=lxqt!g' /etc/lightdm/lightdm.conf
 
 mkdir -p /home/live/Desktop
 cp /usr/share/applications/mageia-draklive-install.desktop /home/live/Desktop/
