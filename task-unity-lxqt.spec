@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	34%{?dist}
+Release:	35%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -160,6 +160,9 @@ fi
 
 %files live
 %changelog
+* Mon Apr 09 2018 Jeremiah Summers <jsummers@glynlyon.com> 0.1.2-35
+- Update config to fix autologin
+
 * Tue Apr 03 2018 Jeremiah Summers <Jeremiah.Summers@unity-linux.org> 0.1.2-34
 - Use lightdm for now to replace sddm
 
