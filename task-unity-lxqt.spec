@@ -1,11 +1,10 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	35%{?dist}
+Release:	36%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
 URL:		http://lxqt.org/
-Requires:	%{name}-live
 Recommends:	task-pulseaudio
 Recommends:	mageiawelcome
 Requires:	lxqt-openssh-askpass
@@ -119,8 +118,6 @@ Requires:	dosfstools
 
 # We need Icons, but 32M worth?
 Requires:	oxygen-icons5
-Requires:	draklive-install
-Requires:	drakx-finish-install
 Requires:	drakconf
 Requires:	alsa-utils
 
@@ -140,17 +137,13 @@ if [ `grep -c ^live /etc/passwd` = "0" ]; then
 mkdir -p /home/live/.config/openbox/
 cp /etc/xdg/openbox/lxqt-rc.xml /home/live/.config/openbox/lxqt-rc.xml
 
-#For SDDM if it works
-#sed -i 's!\#\[Autologin\]![Autologin]!g' /etc/sddm.conf
-#sed -i 's!#User=!User=live!g' /etc/sddm.conf
-#sed -i 's!#Session=!Session=lxqt.desktop!g' /etc/sddm.conf
-
 #For LightDM
 sed -i 's!#autologin-user=!autologin-user=live!g' /etc/lightdm/lightdm.conf
 sed -i 's!#autologin-session=!autologin-session=lxqt!g' /etc/lightdm/lightdm.conf
-
-mkdir -p /home/live/Desktop
-cp /usr/share/applications/mageia-draklive-install.desktop /home/live/Desktop/
+if [ -f /usr/share/applications/mageia-draklive-install.desktop ]; then
+ mkdir -p /home/live/Desktop
+ cp /usr/share/applications/mageia-draklive-install.desktop /home/live/Desktop/
+fi
 chown -R live:live /home/live
 fi
 
@@ -160,6 +153,9 @@ fi
 
 %files live
 %changelog
+* Mon Apr 09 2018 Jeremiah Summers <jsummers@glynlyon.com> 0.1.2-36
+- Remove not needed depends 
+
 * Mon Apr 09 2018 Jeremiah Summers <jsummers@glynlyon.com> 0.1.2-35
 - Update config to fix autologin
 
