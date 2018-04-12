@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	36%{?dist}
+Release:	37%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -62,7 +62,6 @@ Requires:	lxqt-qtplugin
 Requires:	lxqt-policykit
 Requires:	lxqt-powermanagement
 Requires:	lxqt-about
-#Requires:	lxqt-common
 Requires:	lxmenu-data
 Requires:	lxqt-config
 Requires:	openbox
@@ -103,7 +102,7 @@ Requires: 	pulseaudio
 Requires:	dkms-minimal
 #Requires:	vboxadditions-kernel-unity-desktop-latest
 Requires:	dnfdragora-qt
-Requires:	qupzilla
+Requires:	falkon
 Requires:	os-prober
 Requires:	acpid
 Requires:	grub2
@@ -153,6 +152,9 @@ fi
 
 %files live
 %changelog
+* Thu Apr 12 2018 Jeremiah Summers <jsummers@glynlyon.com> 0.1.2-37
+- Change QupZilla to Falkon
+
 * Mon Apr 09 2018 Jeremiah Summers <jsummers@glynlyon.com> 0.1.2-36
 - Remove not needed depends 
 
