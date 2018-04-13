@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	37%{?dist}
+Release:	38%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -25,7 +25,7 @@ Recommends:	silicon-copy-disc
 Recommends:	silicon-plugin-system-tray
 Recommends:	silicon-plugin-single-inner-dialog
 Recommends:	xscreensaver
-Recommends:	qupzilla
+Recommends:	falkon
 Recommends:	trojita
 Recommends:	qpdfview
 Recommends:	vlc
@@ -86,6 +86,7 @@ BuildRequires:	systemd-devel
 Requires: 	%{name}-minimal
 Requires: 	unity-theme
 Requires: 	unity-theme-grub
+Requires:       qlipper
 Requires: 	lightdm
 Requires: 	cpupower
 Requires: 	volumeicon
@@ -152,6 +153,9 @@ fi
 
 %files live
 %changelog
+* Fri Apr 13 2018 Jeremiah Summers <jsummers@glynlyon.com> 0.1.2-38
+- require qlipper and suggest falkon for parent pacakge
+
 * Thu Apr 12 2018 Jeremiah Summers <jsummers@glynlyon.com> 0.1.2-37
 - Change QupZilla to Falkon
 
