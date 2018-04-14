@@ -14,15 +14,21 @@ before_install:
 - gem install travis
 - sh /tmp/stuff/.travis_login
 - docker pull jmiahman/mageia-rpmbuilder
+env:
+- MOCK_CONFIG="mageia-cauldron-i586"
+- MOCK_CONFIG="mageia-cauldron-x86_64"
 script:
 - export DID=$(docker image ls | grep -m1 mageia-rpmbuilder | awk '{print $3}')
 - echo $DID
-- docker run --privileged=true -d -v "$(pwd):/rpmbuild" -v "/dev:/dev" $DID tail -f
-  /dev/null
+- docker run --privileged=true -e MOCK_CONFIG=${MOCK_CONFIG} -d -v "$(pwd):/rpmbuild" -v "/dev:/dev" $DID tail -f /dev/null
 - export CID=$(docker ps -l | awk '{print $1}' | grep -v -m1 'CONTAINER')
 - echo $CID
-- docker exec $CID /bin/sh -c 'cd /rpmbuild && mkdir ./{SRPMS,RPMS} && dnf builddep *.spec -y && rpmbuild --define "_topdir $(pwd)" -ba *.spec' --privileged=true
-- find ~/ -name *.src.rpm
+- docker exec $CID /bin/sh -c 'cd /rpmbuild && dnf -y install git && make spec && make export && rpmbuilder bs' --privileged=true
+- find ./${MOCK_CONFIG} -name *.src.rpm
+- find ./${MOCK_CONFIG} -name *.{RPM_ARCH}.rpm
+- find ./${MOCK_CONFIG} -name *.noarch.rpm
 after_success:
 - sudo -H pip install --upgrade pyOpenSSL ndg-httpsclient pyasn1 requests[security] jinja2 marshmallow copr-cli simplejson
-- if [ -f $(find ~/ -name *.src.rpm) ]; then copr-cli --config /tmp/stuff/.copr build jmiahman/Unity-Linux $(find ~/ -name *.src.rpm); travis restart -r unity-linux/buildunity; fi
+- scp -o StrictHostKeyChecking=no $(find ./${MOCK_CONFIG} -name "*.rpm" -print) foobar2:rpm_staging/Unity-Linux/${RPM_ARCH}/
+- scp -o StrictHostKeyChecking=no $(find ./SRPMS -name "*.rpm" -print|grep -v 'src.rpm') foobar2:rpm_staging/Unity-Linux/src/
+- ssh -o StrictHostKeyChecking=no foobar2 'sh ~/bin/down_copr'
