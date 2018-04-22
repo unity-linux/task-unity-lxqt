@@ -24,10 +24,8 @@ script:
 - docker run --privileged=true -e MOCK_CONFIG=${MOCK_CONFIG} -d -v "$(pwd):/rpmbuild" -v "/dev:/dev" $DID tail -f /dev/null
 - export CID=$(docker ps -l | awk '{print $1}' | grep -v -m1 'CONTAINER')
 - echo $CID
-- docker exec $CID /bin/sh -c "cd /rpmbuild && setarch ${ARCH} rpmbuild -bs --undefine=_disable_source_fetch --define ""_sourcedir ${pwd}"" *.spec " --privileged=true
-- find ./${MOCK_CONFIG} -name *.src.rpm
-- find ./${MOCK_CONFIG} -name *.${ARCH}.rpm
-- find ./${MOCK_CONFIG} -name *.noarch.rpm
+- docker exec $CID /bin/sh -c "cd /rpmbuild && setarch ${ARCH} rpmbuild -bs --undefine=_disable_source_fetch --define _sourcedir=${pwd} *.spec" --privileged=true
+- find ./SRPMS -name *.src.rpm
 after_success:
 - sudo -H pip install --upgrade pyOpenSSL ndg-httpsclient pyasn1 jinja2 requests[security] marshmallow copr-cli simplejson
 - if [ -f ./SRPMS/*.src.rpm ]; then copr-cli --config /tmp/stuff/.copr build jmiahman/mklivecd ./SRPMS/*.src.rpm; fi &
