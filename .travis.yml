@@ -17,7 +17,7 @@ env:
 - MOCK_CONFIG="mageia-cauldron-i586"
 - MOCK_CONFIG="mageia-cauldron-x86_64"
 script:
-- ARCH=$(echo ${ARCH} | cut -d- -f3)
+- ARCH=$(echo ${MOCK_CONFIG} | cut -d- -f3)
 - docker pull jmiahman/mageia-rpmbuilder-${ARCH}
 - export DID=$(docker image ls | grep -m1 mageia-rpmbuilder-${ARCH} | awk '{print $3}')
 - echo $DID
