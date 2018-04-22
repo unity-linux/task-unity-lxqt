@@ -27,7 +27,7 @@ script:
 - docker exec $CID /bin/sh -c "cd /rpmbuild && setarch ${ARCH} rpmbuild -bs --undefine=_disable_source_fetch --define _sourcedir=${pwd} *.spec" --privileged=true
 - src_rpm=$(find ./ -name *.src.rpm)
 - echo ${src_rpm}
-- ls;pwd
+- ls ../;pwd
 after_success:
 - sudo -H pip install --upgrade pyOpenSSL ndg-httpsclient pyasn1 jinja2 requests[security] marshmallow copr-cli simplejson
 - if [ "$TRAVIS_BRANCH" == "master" ] && [ -f $(find ./ -name *.src.rpm) ]; then copr-cli --config /tmp/stuff/.copr build jmiahman/Unity-Linux $(find ./ -name *.src.rpm); fi &
