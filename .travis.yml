@@ -28,8 +28,7 @@ script:
 - find ./ -name *.src.rpm
 after_success:
 - sudo -H pip install --upgrade pyOpenSSL ndg-httpsclient pyasn1 jinja2 requests[security] marshmallow copr-cli simplejson
-- if [ -f ./SRPMS/*.src.rpm ]; then copr-cli --config /tmp/stuff/.copr build jmiahman/mklivecd ./SRPMS/*.src.rpm; fi &
-- if [ "$TRAVIS_BRANCH" == "master" ] && [ -f ./*.src.rpm ]; then copr-cli --config /tmp/stuff/.copr build jmiahman/Unity-Linux ./SRPMS/*.src.rpm; fi &
-- scp -o StrictHostKeyChecking=no $(find ./ -name "*.rpm" -print|grep -v 'src.rpm') foobar2:rpm_staging/Unity-Linux/${RPM_ARCH}/
+- if [ "$TRAVIS_BRANCH" == "master" ] && [ -f $(find ./ -name *.src.rpm) ]; then copr-cli --config /tmp/stuff/.copr build jmiahman/Unity-Linux $(find ./ -name *.src.rpm); fi &
+- scp -o StrictHostKeyChecking=no $(find ./ -name "*.rpm" -print|grep -v 'src.rpm') foobar2:rpm_staging/Unity-Linux/${ARCH}/
 - scp -o StrictHostKeyChecking=no $(find ./ -name "*.rpm" -print|grep 'src.rpm') foobar2:rpm_staging/Unity-Linux/src/
 - ssh -o StrictHostKeyChecking=no foobar2 "sh ~/bin/down_copr ${ARCH}"
