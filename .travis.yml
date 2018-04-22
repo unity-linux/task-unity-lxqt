@@ -24,7 +24,6 @@ script:
 - docker run --privileged=true -e MOCK_CONFIG=${MOCK_CONFIG} -d -v "$(pwd):/rpmbuild" -v "/dev:/dev" $DID tail -f /dev/null
 - export CID=$(docker ps -l | awk '{print $1}' | grep -v -m1 'CONTAINER')
 - echo $CID
---undefine=_disable_source_fetch --define "_sourcedir ${pwd}"
 - docker exec $CID /bin/sh -c "cd /rpmbuild && setarch ${ARCH} rpmbuild -bs --undefine=_disable_source_fetch --define \"_sourcedir ${pwd}\" *.spec " --privileged=true
 - find ./${MOCK_CONFIG} -name *.src.rpm
 - find ./${MOCK_CONFIG} -name *.${ARCH}.rpm
