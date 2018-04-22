@@ -25,11 +25,11 @@ script:
 - export CID=$(docker ps -l | awk '{print $1}' | grep -v -m1 'CONTAINER')
 - echo $CID
 - docker exec $CID /bin/sh -c "cd /rpmbuild && setarch ${ARCH} rpmbuild -bs --undefine=_disable_source_fetch --define _sourcedir=${pwd} *.spec" --privileged=true
-- find ./SRPMS -name *.src.rpm
+- find ./ -name *.src.rpm
 after_success:
 - sudo -H pip install --upgrade pyOpenSSL ndg-httpsclient pyasn1 jinja2 requests[security] marshmallow copr-cli simplejson
 - if [ -f ./SRPMS/*.src.rpm ]; then copr-cli --config /tmp/stuff/.copr build jmiahman/mklivecd ./SRPMS/*.src.rpm; fi &
-- if [ "$TRAVIS_BRANCH" == "master" ] && [ -f ./SRPMS/*.src.rpm ]; then copr-cli --config /tmp/stuff/.copr build jmiahman/Unity-Linux ./SRPMS/*.src.rpm; fi &
-- scp -o StrictHostKeyChecking=no $(find ./SRPMS -name "*.rpm" -print|grep -v 'src.rpm') foobar2:rpm_staging/Unity-Linux/${RPM_ARCH}/
-- scp -o StrictHostKeyChecking=no $(find ./SRPMS -name "*.rpm" -print|grep 'src.rpm') foobar2:rpm_staging/Unity-Linux/src/
+- if [ "$TRAVIS_BRANCH" == "master" ] && [ -f ./*.src.rpm ]; then copr-cli --config /tmp/stuff/.copr build jmiahman/Unity-Linux ./SRPMS/*.src.rpm; fi &
+- scp -o StrictHostKeyChecking=no $(find ./ -name "*.rpm" -print|grep -v 'src.rpm') foobar2:rpm_staging/Unity-Linux/${RPM_ARCH}/
+- scp -o StrictHostKeyChecking=no $(find ./ -name "*.rpm" -print|grep 'src.rpm') foobar2:rpm_staging/Unity-Linux/src/
 - ssh -o StrictHostKeyChecking=no foobar2 "sh ~/bin/down_copr ${ARCH}"
