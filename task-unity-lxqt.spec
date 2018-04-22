@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	38%{?dist}
+Release:	39%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -145,6 +145,7 @@ if [ -f /usr/share/applications/mageia-draklive-install.desktop ]; then
  cp /usr/share/applications/mageia-draklive-install.desktop /home/live/Desktop/
 fi
 chown -R live:live /home/live
+echo "FINISH_INSTALL=yes" > /etc/sysconfig/finish-install
 fi
 
 %files
@@ -153,6 +154,10 @@ fi
 
 %files live
 %changelog
+* Sat Apr 21 2018 Jeremiah Summers <jsummers@glynlyon.com> 0.1.2-39
+- Update .travis.yml (jeremiah.summers@unity-linux.org)
+- See if we can kick off finish-install
+
 * Fri Apr 13 2018 Jeremiah Summers <jsummers@glynlyon.com> 0.1.2-38
 - require qlipper and suggest falkon for parent pacakge
 
