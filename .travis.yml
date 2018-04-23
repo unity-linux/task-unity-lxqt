@@ -17,14 +17,14 @@ env:
 - MOCK_CONFIG="mageia-cauldron-i586"
 - MOCK_CONFIG="mageia-cauldron-x86_64"
 script:
-- ARCH=$(echo ${MOCK_CONFIG} | cut -d- -f3)
+- export ARCH=$(echo ${MOCK_CONFIG} | cut -d- -f3)
 - docker pull jmiahman/mageia-rpmbuilder-${ARCH}
 - export DID=$(docker image ls | grep -m1 mageia-rpmbuilder-${ARCH} | awk '{print $3}')
 - echo $DID
 - docker run --privileged=true -e MOCK_CONFIG=${MOCK_CONFIG} -d -v "$(pwd):/rpmbuild" -v "/dev:/dev" $DID tail -f /dev/null
 - export CID=$(docker ps -l | awk '{print $1}' | grep -v -m1 'CONTAINER')
 - echo $CID
-- CMD=$(setarch ${ARCH} rpmbuild -bs --undefine=_disable_source_fetch --define "_sourcedir $(pwd)" --define "_topdir $(pwd)" *.spec)
+- export CMD=$(setarch ${ARCH} rpmbuild -bs --undefine=_disable_source_fetch --define "_sourcedir $(pwd)" --define "_topdir $(pwd)" *.spec)
 - docker exec $CID /bin/sh -c "cd /rpmbuild && sh -c ${CMD}" --privileged=true
 - src_rpm=$(find ./ -name *.src.rpm)
 - echo ${src_rpm}
