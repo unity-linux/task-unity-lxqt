@@ -1,6 +1,6 @@
 Name:		task-unity-lxqt
 Version:	0.1.2
-Release:	39%{?dist}
+Release:	40%{?dist}
 Summary:	Metapackage to build a Unity-Linux LXQt install
 Group:		Graphical desktop/Other
 License:	GPL
@@ -155,6 +155,8 @@ fi
 
 %files live
 %changelog
+* Sat Apr 28 2018 jmiahman <jmiahman@unity-linux.org> 0.1.2-40
+- add sudo (jeremiah@localhost.localdomain)
 * Sat Apr 21 2018 Jeremiah Summers <jsummers@glynlyon.com> 0.1.2-39
 - Update .travis.yml (jeremiah.summers@unity-linux.org)
 - See if we can kick off finish-install
