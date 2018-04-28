@@ -106,6 +106,7 @@ Requires:	dnfdragora-qt
 Requires:	falkon
 Requires:	os-prober
 Requires:	acpid
+Requires:	sudo
 Requires:	grub2
 Requires:	grub2-common
 Requires:	grub2-mageia-theme
@@ -132,7 +133,7 @@ for a viable desktop environment.
 /usr/bin/systemctl set-default graphical.target
 /usr/bin/systemctl enable lightdm
 if [ `grep -c ^live /etc/passwd` = "0" ]; then
-/usr/sbin/useradd -c 'LiveCD User' -d /home/live -p 'Unity!' -s /bin/bash live
+/usr/sbin/useradd -c 'LiveCD User' -d /home/live -p 'Unity!' -G wheel -s /bin/bash live
 /usr/bin/passwd -d live
 mkdir -p /home/live/.config/openbox/
 cp /etc/xdg/openbox/lxqt-rc.xml /home/live/.config/openbox/lxqt-rc.xml
